@@ -1,15 +1,15 @@
 [package]
 name = "usaldesk"
 version = "1.4.6"
-authors = ["rustdesk <info@rustdesk.com>"]
+authors = ["Usal Danışmanlık A.Ş."]
 edition = "2021"
 build= "build.rs"
-description = "RustDesk Remote Desktop"
-default-run = "rustdesk"
+description = "UsalDesk Remote Desktop"
+default-run = "usaldesk"
 rust-version = "1.75"
 
 [lib]
-name = "librustdesk"
+name = "libusaldesk"
 crate-type = ["cdylib", "staticlib", "rlib"]
 
 [[bin]]
