@@ -1,11 +1,11 @@
 [package]
-name = "usaldesk"
+name = "rustdesk"
 version = "1.4.6"
 authors = ["Usal Danışmanlık A.Ş."]
 edition = "2021"
 build= "build.rs"
 description = "UsalDesk Remote Desktop"
-default-run = "usaldesk"
+default-run = "rustdesk"
 rust-version = "1.75"
 
 [lib]
