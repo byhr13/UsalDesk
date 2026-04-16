@@ -86,10 +86,26 @@ jobs:
           cargo install flutter_rust_bridge_codegen --version 1.80.1 --locked
           flutter_rust_bridge_codegen --rust-input ./src/flutter_ffi.rs --dart-output ./flutter/lib/generated_bridge.dart
 
-      - name: Build UsalDesk
+      - name: Build Rust lib
+        shell: bash
         run: |
-          python3 .\build.py --portable --flutter --skip-portable-pack
-          mv ./flutter/build/windows/x64/runner/Release ./usaldesk
+          cargo build --features flutter --lib --release
+
+      - name: Copy DLL to flutter
+        shell: bash
+        run: |
+          cp target/release/librustdesk.dll flutter/windows/runner/
+
+      - name: Build Flutter Windows
+        run: |
+          cd flutter
+          flutter build windows --release
+
+      - name: Prepare output
+        shell: bash
+        run: |
+          mkdir -p ./usaldesk
+          cp -r flutter/build/windows/x64/runner/Release/* ./usaldesk/
 
       - name: Build portable exe
         shell: bash
