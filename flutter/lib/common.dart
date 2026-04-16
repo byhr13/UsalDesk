@@ -2159,7 +2159,7 @@ Future<bool> initUniLinks() async {
       webInitialLink = initialLink;
       return false;
     } else {
-      return handleUriLink(uriString: initialLink);
+      return handleUriLink(uriString: initialLink!);
     }
   } catch (err) {
     debugPrintStack(label: "$err");
