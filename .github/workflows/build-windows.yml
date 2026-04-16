@@ -77,8 +77,11 @@ jobs:
 
       - name: Generate bridge
         run: |
+          cd flutter
+          flutter pub get
+          cd ..
           cargo install flutter_rust_bridge_codegen --version 1.80.1 --locked
-          flutter_rust_bridge_codegen --rust-input ./src/flutter_ffi.rs --dart-output ./flutter/lib/generated_bridge.dart
+          flutter_rust_bridge_codegen --rust-input ./src/flutter_ffi.rs --dart-output ./flutter/lib/generated_bridge.dartt
 
       - name: Build UsalDesk
         run: |
